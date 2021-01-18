@@ -24,9 +24,6 @@ export const TrackerScreen = () => {
         { title: "", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%" },
         { title: "", dataIndex: "value", key: "value", width: "10%", align: "right" }
     ]];
-
-    const [transactions, setTransactions] = useState<Array<ITransactionEntry>>(dataSource as Array<ITransactionEntry>)
-
     const currencies = [
         "CAD",
         "USD",
@@ -40,15 +37,17 @@ export const TrackerScreen = () => {
         "MYR"
     ]
 
-    const currencyMenu = (<Menu>
-        {currencies.map((currency, index) =>
-            <Menu.Item key={index}>{currency}</Menu.Item>
-        )}
-    </Menu>)
+    const [transactions, setTransactions] = useState<Array<ITransactionEntry>>(dataSource as Array<ITransactionEntry>)
 
     return <PageContainer>
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-            <Dropdown overlay={currencyMenu}>
+            <Dropdown overlay={() =>
+                <Menu>
+                    {currencies.map((currency, index) =>
+                        <Menu.Item key={index}>{currency}</Menu.Item>
+                    )}
+                </Menu>
+            }>
                 <a>Select Currency</a>
             </Dropdown>
         </div>

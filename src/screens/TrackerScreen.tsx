@@ -1,31 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Table, Typography, Dropdown, Menu, Row, Col } from 'antd'
 import { PageContainer } from '../components'
 
 import dataSource from '../assets/staticData.json'
 import { ColumnsType } from 'antd/lib/table';
+import { ITransactionEntry } from '../models';
 
 const { Title } = Typography
 
 export const TrackerScreen = () => {
-    const shortTermAssetsTableColumns: ColumnsType<any> = [
+    const tableColumns: Array<ColumnsType<ITransactionEntry>> = [[
         { title: "Cash and Investments", dataIndex: "account", key: "account", width: "70%" },
         { title: "", dataIndex: "value", key: "value", width: "10%", align: "right" }
-    ]
-    const longTermAssetsTableColumns: ColumnsType<any> = [
+    ], [
         { title: "Long Term Assets", dataIndex: "account", key: "account", width: "70%" },
         { title: "", dataIndex: "value", key: "value", width: "10%", align: "right" }
-    ]
-    const shortTermLiabilitiesTableColumns: ColumnsType<any> = [
+    ], [
         { title: "Short Term Liabilities", dataIndex: "account", key: "account", width: "40%" },
         { title: "Monthly Payment", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%" },
         { title: "", dataIndex: "value", key: "value", width: "10%", align: "right" }
-    ]
-    const longTermLiabilitiesTableColumns: ColumnsType<any> = [
+    ], [
         { title: "Long Term Debt", dataIndex: "account", key: "account", width: "40%" },
         { title: "", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%" },
         { title: "", dataIndex: "value", key: "value", width: "10%", align: "right" }
-    ]
+    ]];
+
+    const [transactions, setTransactions] = useState<Array<ITransactionEntry>>(dataSource as Array<ITransactionEntry>)
 
     const currencies = [
         "CAD",
@@ -70,8 +70,8 @@ export const TrackerScreen = () => {
             <Col span={24}>
                 <Table
                     pagination={false}
-                    dataSource={dataSource.filter(a => a.type === "asset" && a.accountTerm === "short")}
-                    columns={shortTermAssetsTableColumns}
+                    dataSource={transactions.filter(a => a.type === "asset" && a.accountTerm === "short")}
+                    columns={tableColumns[0]}
                 />
             </Col>
         </Row>
@@ -79,8 +79,8 @@ export const TrackerScreen = () => {
             <Col span={24}>
                 <Table
                     pagination={false}
-                    dataSource={dataSource.filter(a => a.type === "asset" && a.accountTerm === "long")}
-                    columns={longTermAssetsTableColumns}
+                    dataSource={transactions.filter(a => a.type === "asset" && a.accountTerm === "long")}
+                    columns={tableColumns[1]}
                     summary={() => (
                         <Table.Summary.Row>
                             <Table.Summary.Cell index={0}>Total Assets</Table.Summary.Cell>
@@ -99,8 +99,8 @@ export const TrackerScreen = () => {
             <Col span={24}>
                 <Table
                     pagination={false}
-                    dataSource={dataSource.filter(a => a.type === "liability" && a.accountTerm === "short")}
-                    columns={shortTermLiabilitiesTableColumns}
+                    dataSource={transactions.filter(a => a.type === "liability" && a.accountTerm === "short")}
+                    columns={tableColumns[2]}
                 />
             </Col>
         </Row>
@@ -108,8 +108,8 @@ export const TrackerScreen = () => {
             <Col span={24}>
                 <Table
                     pagination={false}
-                    dataSource={dataSource.filter(a => a.type === "liability" && a.accountTerm === "long")}
-                    columns={longTermLiabilitiesTableColumns}
+                    dataSource={transactions.filter(a => a.type === "liability" && a.accountTerm === "long")}
+                    columns={tableColumns[3]}
                     summary={() => (
                         <Table.Summary.Row>
                             <Table.Summary.Cell colSpan={2} index={0}>Total Liabilities</Table.Summary.Cell>

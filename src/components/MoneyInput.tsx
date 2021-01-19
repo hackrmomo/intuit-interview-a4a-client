@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 import { } from '@ant-design/icons'
 import { Input } from 'antd'
-import { ICurrency, ITransactionEntry } from '../models'
+import { ICurrency } from '../models'
 
 export interface IMoneyInputProps {
-    type: "monthlyPayment" | "value"
     val: number
-    entry: ITransactionEntry
     currency: ICurrency
     onBlur: ((event: React.FocusEvent<HTMLInputElement>) => void) | undefined
 }
 
 export const MoneyInput = (props: IMoneyInputProps) => {
-    const { entry, type, val, currency, onBlur } = props
+    const { val, currency, onBlur } = props
     const [value, setValue] = useState(val.toFixed(2))
     return <Input
         addonBefore={currency.prefix}

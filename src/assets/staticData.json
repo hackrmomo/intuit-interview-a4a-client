@@ -1,5 +1,6 @@
 [
   {
+    "id": "84C9F334-43FC-4E77-AF00-E6524CA0564D",
     "account": "Chequing",
     "type": "asset",
     "accountTerm": "short",
@@ -7,6 +8,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "6F8AA7DF-F474-4BAC-BD4D-90BB9E0CF1DA",
     "account": "Savings for Taxes",
     "type": "asset",
     "accountTerm": "short",
@@ -14,6 +16,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "59273BE0-6F95-472B-A164-9CE73973F97D",
     "account": "Rainy Day Fund",
     "type": "asset",
     "accountTerm": "short",
@@ -21,6 +24,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "339026E2-B286-4BB6-A23A-55C6FCA1E4E8",
     "account": "Savings for Fun",
     "type": "asset",
     "accountTerm": "short",
@@ -28,6 +32,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "818E9231-7A2A-4D68-8486-D8CB73C6E01F",
     "account": "Savings for Travel",
     "type": "asset",
     "accountTerm": "short",
@@ -35,6 +40,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "347B0F49-318A-48BC-B9D0-89DC3DA2A649",
     "account": "Savings for Personal Development",
     "type": "asset",
     "accountTerm": "short",
@@ -42,6 +48,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "D8683A72-6C8D-4169-A8F8-369CE8A71605",
     "account": "Investment 1",
     "type": "asset",
     "accountTerm": "short",
@@ -49,6 +56,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "8CDB0AD6-0C26-4EBE-A3B4-D121A1B903C7",
     "account": "Investment 2",
     "type": "asset",
     "accountTerm": "short",
@@ -56,6 +64,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "08FC97F4-F65C-4009-9C7D-CAECB5CF8BD9",
     "account": "Investment 3",
     "type": "asset",
     "accountTerm": "short",
@@ -63,6 +72,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "1782438B-53A4-4583-BDBF-9D6FB56917FA",
     "account": "Primary Home",
     "type": "asset",
     "accountTerm": "long",
@@ -70,6 +80,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "4497A0D7-C398-4B2C-8116-1ED6E97EFBA1",
     "account": "Second Home",
     "type": "asset",
     "accountTerm": "long",
@@ -77,6 +88,7 @@
     "monthlyPayment": null
   },
   {
+    "id": "3F5D976F-F3E1-4D5F-A2AB-841FFE3D6DF1",
     "account": "Credit Card 1",
     "type": "liability",
     "accountTerm": "short",
@@ -84,6 +96,7 @@
     "monthlyPayment": 200
   },
   {
+    "id": "BDC66DD0-CF49-4F46-89AC-49AEFAA86D48",
     "account": "Credit Card 2",
     "type": "liability",
     "accountTerm": "short",
@@ -91,6 +104,7 @@
     "monthlyPayment": 150
   },
   {
+    "id": "DCFF3864-ECDC-4A78-B810-B1B46D29CF48",
     "account": "Mortgage 1",
     "type": "liability",
     "accountTerm": "long",
@@ -98,6 +112,7 @@
     "monthlyPayment": 2000
   },
   {
+    "id": "758FC560-28E0-4033-AD3B-D9CFC1D96ABB",
     "account": "Mortgage 2",
     "type": "liability",
     "accountTerm": "long",
@@ -105,6 +120,7 @@
     "monthlyPayment": 3500
   },
   {
+    "id": "63050A8F-4FAD-4130-B6B7-F8A3FE794EF5",
     "account": "Line of Credit",
     "type": "liability",
     "accountTerm": "long",
@@ -112,6 +128,7 @@
     "monthlyPayment": 500
   },
   {
+    "id": "0E073D0E-73E8-4285-983F-B5F2743E91AC",
     "account": "Investment Loan",
     "type": "liability",
     "accountTerm": "long",

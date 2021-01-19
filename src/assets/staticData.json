@@ -1,0 +1,121 @@
+[
+  {
+    "account": "Chequing",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 2000,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Savings for Taxes",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 4000,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Rainy Day Fund",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 506,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Savings for Fun",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 5000,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Savings for Travel",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 400,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Savings for Personal Development",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 200,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Investment 1",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 5000,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Investment 2",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 60000,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Investment 3",
+    "type": "asset",
+    "accountTerm": "short",
+    "value": 24000,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Primary Home",
+    "type": "asset",
+    "accountTerm": "long",
+    "value": 455000,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Second Home",
+    "type": "asset",
+    "accountTerm": "long",
+    "value": 1564321,
+    "monthlyPayment": null
+  },
+  {
+    "account": "Credit Card 1",
+    "type": "liability",
+    "accountTerm": "short",
+    "value": 4342,
+    "monthlyPayment": 200
+  },
+  {
+    "account": "Credit Card 2",
+    "type": "liability",
+    "accountTerm": "short",
+    "value": 422,
+    "monthlyPayment": 150
+  },
+  {
+    "account": "Mortgage 1",
+    "type": "liability",
+    "accountTerm": "long",
+    "value": 250999,
+    "monthlyPayment": 2000
+  },
+  {
+    "account": "Mortgage 2",
+    "type": "liability",
+    "accountTerm": "long",
+    "value": 632634,
+    "monthlyPayment": 3500
+  },
+  {
+    "account": "Line of Credit",
+    "type": "liability",
+    "accountTerm": "long",
+    "value": 10000,
+    "monthlyPayment": 500
+  },
+  {
+    "account": "Investment Loan",
+    "type": "liability",
+    "accountTerm": "long",
+    "value": 10000,
+    "monthlyPayment": 700
+  }
+]

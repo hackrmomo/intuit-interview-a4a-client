@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Error404Screen, TrackerScreen } from './screens'
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.dark.css'
 const Router = () => {
   return (
     <BrowserRouter>

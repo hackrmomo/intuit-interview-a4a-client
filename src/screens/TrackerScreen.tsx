@@ -102,7 +102,7 @@ export const TrackerScreen = () => {
                     summary={() => (
                         <Table.Summary.Row>
                             <Table.Summary.Cell index={0}>Total Assets</Table.Summary.Cell>
-                            <Table.Summary.Cell index={1}>{totalAssets}</Table.Summary.Cell>
+                            <Table.Summary.Cell align="right" index={1}><MoneyField>{totalAssets}</MoneyField></Table.Summary.Cell>
                         </Table.Summary.Row>
                     )}
                 />
@@ -131,7 +131,7 @@ export const TrackerScreen = () => {
                     summary={() => (
                         <Table.Summary.Row>
                             <Table.Summary.Cell colSpan={2} index={0}>Total Liabilities</Table.Summary.Cell>
-                            <Table.Summary.Cell index={1}>{totalLiabilities}</Table.Summary.Cell>
+                            <Table.Summary.Cell align="right" index={1}><MoneyField>{totalLiabilities}</MoneyField></Table.Summary.Cell>
                         </Table.Summary.Row>
                     )}
                 />

@@ -21,7 +21,7 @@ export const TrackerScreen = () => {
                 monthlyPayment: type === "monthlyPayment" ? parseFloat(e.target.value) : a.monthlyPayment,
                 value: type === "value" ? parseFloat(e.target.value) : a.value
             }) : a))
-        }} type={type} entry={entry} val={val} />
+        }} val={val} />
         : <MoneyField currency={currentCurrency} key={entry.id}>{val}</MoneyField>
 
     const tableColumns: Array<ColumnsType<ITransactionEntry>> = [[

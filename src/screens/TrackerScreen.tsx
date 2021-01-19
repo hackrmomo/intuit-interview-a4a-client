@@ -12,20 +12,22 @@ const { Title } = Typography
 
 export const TrackerScreen = () => {
 
+    const moneyRenderMethod = (val: number) => <MoneyField>{val}</MoneyField>
+
     const tableColumns: Array<ColumnsType<ITransactionEntry>> = [[
         { title: "Cash and Investments", dataIndex: "account", key: "account", width: "70%" },
-        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: (val: number) => <MoneyField>{val}</MoneyField> }
+        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: moneyRenderMethod }
     ], [
         { title: "Long Term Assets", dataIndex: "account", key: "account", width: "70%" },
-        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: (val: number) => <MoneyField>{val}</MoneyField> }
+        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: moneyRenderMethod }
     ], [
         { title: "Short Term Liabilities", dataIndex: "account", key: "account", width: "40%" },
-        { title: "Monthly Payment", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%", render: (val: number) => <MoneyField>{val}</MoneyField> },
-        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: (val: number) => <MoneyField>{val}</MoneyField> }
+        { title: "Monthly Payment", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%", render: moneyRenderMethod},
+        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: moneyRenderMethod }
     ], [
         { title: "Long Term Debt", dataIndex: "account", key: "account", width: "40%" },
-        { title: "", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%", render: (val: number) => <MoneyField>{val}</MoneyField> },
-        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: (val: number) => <MoneyField>{val}</MoneyField> }
+        { title: "", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%", render: moneyRenderMethod },
+        { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: moneyRenderMethod }
     ]];
     const currencies: Array<ICurrency> = [
         { code: "CAD", prefix: "$" },
@@ -53,30 +55,22 @@ export const TrackerScreen = () => {
         return <NumberFormat decimalScale={2} value={props.children} displayType="text" thousandSeparator prefix={currentCurrency.prefix} />
     }
 
-    const calculateUpdatedValues = async () => {
-        const result = await axios.post<ICalculatedResults>(`${process.env.REACT_APP_SERVER_END_POINT}/calculator/calculate`, transactions)
+    const calculateUpdatedValues = async (from: string = "CAD", to: string = "CAD") => {
+        const result = await axios.post<ICalculatedResults>(`${process.env.REACT_APP_SERVER_END_POINT}/calculator/calculate?conversionType=${from}_${to}`, transactions)
         setTotalAssets(result.data.totalAssets)
         setTotalLiabilities(result.data.totalLiabilities)
         setNetWorth(result.data.netWorth)
+        setTransactions(result.data.transactions)
     }
-
-    const convertValuesToCurrency = async (from: string, to: string) => {
-        const result = await axios.get<any>(`${process.env.REACT_APP_CURR_CONV_END_POINT}?q=${from}_${to}&compact=ultra&apiKey=${process.env.REACT_APP_CURR_CONV_KEY}`)
-        const multiplier = result.data[`${from}_${to}`] as number
-        setTransactions(transactions.map(a => ({ ...a, value: a.value * multiplier, monthlyPayment: a.monthlyPayment !== null ? a.monthlyPayment * multiplier : null })))
-    }
-
-    useEffect(() => {
-        calculateUpdatedValues()
-    }, [transactions])
 
     return <PageContainer>
+
         <div style={{ display: "flex", flexDirection: "row-reverse" }}>
             <Dropdown overlay={() =>
                 <Menu>
                     {currencies.map((currency, index) =>
-                        <Menu.Item onClick={() => {
-                            convertValuesToCurrency(currentCurrency.code, currency.code)
+                        <Menu.Item onClick={async () => {
+                            await calculateUpdatedValues(currentCurrency.code, currency.code)
                             setCurrentCurrency(currency)
                         }} key={index}>
                             {currency.code}

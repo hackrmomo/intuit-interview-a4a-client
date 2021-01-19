@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { Table, Typography, Dropdown, Menu, Row, Col, Button } from 'antd'
 import { EditOutlined, CheckOutlined } from '@ant-design/icons'
 import { PageContainer, MoneyInput, MoneyField } from '../components'
 
 import dataSource from '../assets/staticData.json'
-import { ColumnsType } from 'antd/lib/table';
-import { ITransactionEntry, ICurrency, ICalculatedResults } from '../models';
-import axios from 'axios';
+import { ColumnsType } from 'antd/lib/table'
+import { ITransactionEntry, ICurrency, ICalculatedResults } from '../models'
+import axios from 'axios'
 
 const { Title } = Typography
+const currencies: Array<ICurrency> = require("../assets/currencies.json")
+
 
 export const TrackerScreen = () => {
 
@@ -37,18 +39,6 @@ export const TrackerScreen = () => {
         { title: "", dataIndex: "monthlyPayment", key: "monthlyPayment", width: "30%", render: moneyRenderMethod("monthlyPayment") },
         { title: "", dataIndex: "value", key: "value", width: "10%", align: "right", render: moneyRenderMethod("value") }
     ]];
-    const currencies: Array<ICurrency> = [
-        { code: "CAD", prefix: "$" },
-        { code: "USD", prefix: "$" },
-        { code: "EUR", prefix: "€" },
-        { code: "HKD", prefix: "$" },
-        { code: "KWD", prefix: "ك" },
-        { code: "LYD", prefix: "ل.د" },
-        { code: "JPY", prefix: "¥" },
-        { code: "INR", prefix: "₹" },
-        { code: "PKR", prefix: "₨" },
-        { code: "MYR", prefix: "RM" }
-    ]
 
     const [transactions, setTransactions] = useState<Array<ITransactionEntry>>(dataSource as Array<ITransactionEntry>)
     const [totalAssets, setTotalAssets] = useState<number>(transactions.filter(a => a.type === "asset").map(a => a.value).reduce((a, b) => a + b, 0))

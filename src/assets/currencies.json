@@ -1,0 +1,12 @@
+[
+    { "code": "CAD", "prefix": "$" },
+    { "code": "USD", "prefix": "$" },
+    { "code": "EUR", "prefix": "€" },
+    { "code": "HKD", "prefix": "$" },
+    { "code": "KWD", "prefix": "ك" },
+    { "code": "LYD", "prefix": "ل.د" },
+    { "code": "JPY", "prefix": "¥" },
+    { "code": "INR", "prefix": "₹" },
+    { "code": "PKR", "prefix": "₨" },
+    { "code": "MYR", "prefix": "RM" }
+]
